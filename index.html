@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Full Tilt Data: AI - Chief of Staff</title>
+<style>
+  @font-face{font-family:'Poppins';src:url('assets/Poppins-SemiBold.ttf') format('truetype');font-weight:600}
+  @font-face{font-family:'Poppins';src:url('assets/Poppins-Bold.ttf') format('truetype');font-weight:700}
+  @font-face{font-family:'Poppins';src:url('assets/Poppins-ExtraBold.ttf') format('truetype');font-weight:800}
+  @font-face{font-family:'Open Sans';src:url('assets/OpenSans.ttf') format('truetype');font-weight:400 700}
+  :root{--navy:#014C7E;--navy-d:#08243B;--teal:#3F9BAE;--blue:#5E7CE0;--lblue:#8FC7E8;
+    --ink:#08243B;--body:#4B4F58;--label:#7A8591;--page:#F9FAFB;--page2:#F2F5F7;--line:#E4E7EB;--card:#FFFFFF;--ac:#014C7E}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px}
+  body{font-family:'Open Sans',sans-serif;color:var(--body);background:linear-gradient(180deg,#FFFFFF 0%,#F6F9FC 45%,var(--page) 100%);-webkit-font-smoothing:antialiased}
+  .page{width:1080px;padding:38px 46px 0;position:relative;display:flex;flex-direction:column}
+  h1,.chip,.lbl,.tag,.date,.li-bar,.pt-h,.ask-t,.appr-name,.foot .l{font-family:'Poppins',sans-serif}
+  .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .pill{display:inline-flex;align-items:center;border:2px solid var(--navy);border-radius:40px;padding:8px 20px 8px 16px}
+  .pill img{height:34px;display:block}
+  .date{font-weight:600;color:var(--navy);font-size:18px}
+  h1{text-align:center;font-weight:800;line-height:1;letter-spacing:-.5px}
+  h1 .l1{color:var(--navy-d);font-size:46px}
+  h1 .l2{color:var(--navy);font-size:46px}
+  .tag{text-align:center;font-weight:600;color:var(--body);font-size:18px;line-height:1.4;margin-top:11px}
+  .tag b{color:var(--navy)}
+
+  .triage{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+  .tri{background:#fff;border:1px solid var(--line);border-top:6px solid var(--ac);border-radius:12px;padding:14px 16px;box-shadow:0 6px 16px rgba(8,36,59,.06)}
+  .tri-h{font-family:'Poppins';font-weight:800;font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ac);margin-bottom:7px}
+  .tri-b{font-size:14.5px;line-height:1.36;color:var(--ink);font-weight:600}
+
+  .sec{margin-top:18px}
+  .li-bar{background:var(--navy);color:#fff;border-radius:14px 14px 0 0;padding:13px 22px;font-weight:800;font-size:20px;display:flex;align-items:baseline;gap:12px}
+  .li-bar span{font-weight:600;font-size:13.5px;color:var(--lblue);text-transform:uppercase;letter-spacing:.5px}
+  .asks-card{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:#fff;box-shadow:0 6px 16px rgba(8,36,59,.06);overflow:hidden}
+  .ask-row{padding:14px 22px;border-left:6px solid var(--ac)}
+  .ask-row + .ask-row{border-top:1px solid var(--line)}
+  .ask-head{display:flex;align-items:center;gap:12px}
+  .chip{font-weight:800;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:#fff;border-radius:20px;padding:4px 12px;font-family:'Poppins'}
+  .chip.now{background:var(--navy)}
+  .chip.wk{background:var(--teal)}
+  .ask-t{font-weight:800;color:var(--ink);font-size:17.5px;line-height:1.2}
+  .ask-next{font-size:15px;line-height:1.35;color:var(--body);margin-top:6px}
+  .ask-next b{font-family:'Poppins';font-weight:700;color:var(--ac);font-size:12.5px;letter-spacing:.3px;text-transform:uppercase;margin-right:6px}
+
+  .li-cols{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;overflow:hidden;background:#fff;box-shadow:0 6px 16px rgba(8,36,59,.06)}
+  .li-card{padding:16px 20px}
+  .li-card + .li-card{border-left:1px solid var(--line)}
+  .li-h{font-family:'Poppins';font-weight:800;font-size:13.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--ac);margin-bottom:12px}
+  .appr{border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-bottom:11px;background:#FAFBFD}
+  .appr:last-child{margin-bottom:0}
+  .appr-top{font-size:13.5px;margin-bottom:6px}
+  .appr-name{font-weight:800;color:var(--ink)}
+  .appr-topic{color:var(--label)}
+  .appr-draft{font-size:14px;line-height:1.4;color:var(--body);font-style:italic;border-left:3px solid var(--ac);padding-left:11px;margin-bottom:10px}
+  .btn-appr{background:var(--ac);color:#fff;font-family:'Poppins';font-weight:700;font-size:12px;letter-spacing:.2px;border-radius:16px;padding:5px 13px}
+  .btn-edit{color:var(--ac);font-family:'Poppins';font-weight:700;font-size:12px;margin-left:10px}
+
+  .foot{margin:26px -46px 0 -46px;background:var(--navy);padding:16px 46px;display:flex;align-items:center;justify-content:space-between}
+  .foot .l{color:#fff;font-weight:700;font-size:16px}
+  .foot .r{color:var(--lblue);font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:17px}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="pill"><img src="assets/logo-color.png" alt="Blue Signal"></div>
+    <div class="date">Monday, 7:00 AM</div>
+  </div>
+
+  <h1><span class="l1">Full Tilt Data: </span><span class="l2">AI - Chief of Staff</span></h1>
+  <div class="tag">Shane Brass, Full Tilt Data. <b>Your Morning Brief, triaged and ready.</b><br>Drafts only. You approve every send.</div>
+
+  <div class="triage">
+    <div class="tri" style="--ac:#014C7E"><div class="tri-h">1 &middot; Do first</div><div class="tri-b">The federal RFI due Thursday. First draft is assembled and waiting for your review.</div></div>
+    <div class="tri" style="--ac:#3F9BAE"><div class="tri-h">2 &middot; Continue</div><div class="tri-b">The Snowflake migration SOW for the Cedar Rapids prospect. Drafted, needs your numbers.</div></div>
+    <div class="tri" style="--ac:#5E7CE0"><div class="tri-h">3 &middot; New today</div><div class="tri-b">New inbound: a Des Moines manufacturer asking about dashboards. Pre-read ready.</div></div>
+  </div>
+
+  <div class="sec">
+    <div class="li-bar">Your inbox, handled <span>3 that need you &middot; drafted 3 &middot; sent 0 &middot; checked 06:55</span></div>
+    <div class="asks-card">
+      <div class="ask-row" style="--ac:#5E7CE0">
+        <div class="ask-head"><span class="chip now">Now</span><span class="ask-t">Client status update, the health-system migration</span></div>
+        <div class="ask-next"><b>Next</b>Approve the drafted update. It reports the cutover is on track for Friday and lists the two items waiting on their team.</div>
+      </div>
+      <div class="ask-row" style="--ac:#3F9BAE">
+        <div class="ask-head"><span class="chip now">Now</span><span class="ask-t">dbt Labs wants a co-sell call</span></div>
+        <div class="ask-next"><b>Next</b>Approve the reply and the Thursday 2:00 PM hold already drafted on your calendar.</div>
+      </div>
+      <div class="ask-row" style="--ac:#014C7E">
+        <div class="ask-head"><span class="chip wk">This week</span><span class="ask-t">Team flagged a blocker on the warehouse build</span></div>
+        <div class="ask-next"><b>Next</b>Approve the reply pointing the lead at the staging fix, or reassign it in one tap.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="li-bar">Drafted and ready to approve <span>Shane's grind, already done</span></div>
+    <div class="li-cols">
+      <div class="li-card" style="--ac:#3F9BAE">
+        <div class="li-h">Proposals &amp; RFPs</div>
+        <div class="appr">
+          <div class="appr-top"><span class="appr-name">Federal RFI</span> <span class="appr-topic">due Thursday</span></div>
+          <div class="appr-draft">Assembled from your last three winning responses. Every claim is sourced to a past document, and three gaps are flagged for you to fill.</div>
+          <div><span class="btn-appr">Open draft</span><span class="btn-edit">Send to a reviewer</span></div>
+        </div>
+        <div class="appr">
+          <div class="appr-top"><span class="appr-name">Commercial SOW</span> <span class="appr-topic">Cedar Rapids prospect</span></div>
+          <div class="appr-draft">Built from your past decks. Scope, timeline, and price are in place. Every number is flagged needs-verify so nothing goes out unchecked.</div>
+          <div><span class="btn-appr">Open draft</span><span class="btn-edit">Edit</span></div>
+        </div>
+      </div>
+      <div class="li-card" style="--ac:#5E7CE0">
+        <div class="li-h">Replies, ready to send</div>
+        <div class="appr">
+          <div class="appr-top"><span class="appr-name">Discovery follow-up</span> <span class="appr-topic">yesterday's call</span></div>
+          <div class="appr-draft">Thanks for the time yesterday. Here is the one-page summary of what we heard and the two next steps we proposed.</div>
+          <div><span class="btn-appr">Approve &amp; send</span><span class="btn-edit">Edit</span></div>
+        </div>
+        <div class="appr">
+          <div class="appr-top"><span class="appr-name">Monthly check-in</span> <span class="appr-topic">key account</span></div>
+          <div class="appr-draft">Quick check-in before month-end. Here is where the migration stands and the one decision we need from you this week.</div>
+          <div><span class="btn-appr">Approve &amp; send</span><span class="btn-edit">Edit</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="l">Prepared for Shane Brass, Full Tilt Data</span>
+    <span class="r">Drafts only. You hold the send button.</span>
+  </div>
+</div>
+</body>
+</html>
